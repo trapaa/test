@@ -8,7 +8,7 @@ import {MatTableDataSource} from '@angular/material/table';
 
 
 
-const activites: any = [
+export const activites: any = [
   {date: '12/121/12', participant: 'Berline',subject:'eeeeee',note:'aaaaaa'},
   {date: '19/15/15', participant: 'aaaaaa',subject:'fffff',note:'ddddddd'},
   {date: '15/121/13', participant: 'bbbbb',subject:'hhhhhh',note:'xsssss'},

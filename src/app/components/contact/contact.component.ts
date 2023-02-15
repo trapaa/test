@@ -7,7 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
 
 
 
-const contacts: any = [
+export const contacts: any = [
   {firstname: 'efdfl', lastname: 'Berline',company:'iyoyuy',job:'hthyth',email:'szde',phone:333333,contactowner:'fdrrrh'},
   {firstname: 'erzerze', lastname: 'ssqsq',company:'ghfghg',job:'sqdqsdqs',email:'htyt',phone:5554,contactowner:'sddfgr'},
   {firstname: 'zmrklefs', lastname: 'csccsc',company:'sdqsdq',job:'ezezez',email:'qqqqq',phone:558474,contactowner:'aazea'},

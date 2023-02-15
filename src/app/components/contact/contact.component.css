@@ -63,6 +63,9 @@ height: 30px;
 
     width: 7%;
 }
-  
+.mat-column-firstname, .mat-column-lastname,.mat-column-company,.mat-column-job{
+
+  width: 15%;
+}
 
   
