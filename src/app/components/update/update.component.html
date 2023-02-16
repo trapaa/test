@@ -1,0 +1,174 @@
+<div class="mx-2">
+
+  <div class="row justify-content-between mt-2 align-items-center">
+    <div class="col-auto align-items-center">
+      <span style="color: cornflowerblue;" >  Update Contact {{contact.lastname}} {{contact.firstname}}</span>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn2 btn-danger btn-sm mx-2" >
+        <i class="bi bi-dash"></i>
+      </button> 
+      <button type="button" class="btn2 btn-danger btn-sm  mx-2" >
+        <i class="bi bi-box-arrow-in-up-right"></i>
+      </button>
+      <button type="button" class="btn2 btn-danger btn-sm mx-2" >
+        <i class="bi bi-x"></i>
+      </button> 
+     
+     
+    </div>
+  </div>
+  
+  <hr>
+  
+  
+  <div class="sidebar mt-3">
+    
+  
+  
+    <button type="button" class="btn btn-outline-primary mt-2 w-75"><i class="bi bi-person "></i> <span class="m-x-5"> profile </span></button> <br>
+    <button (click)="activite()" type="button" class="btn btn-outline-primary w-75" ><i class="bi bi-receipt-cutoff"></i><span class="m-x-5"> activite </span></button>
+   
+  </div>
+  
+  
+  <div class="row">
+      <div class="col-5 mt-5">
+          <div class="content">
+              <div class="card">
+                  <img src="../../../assets/profile.webp" class="w-50 h-25 mx-5 my-5"  alt="John" style="width:100%">
+                  <div class="box__input mx-3 my-3">
+                      <input class="box__file" type="file"  data-multiple-caption="{count} files selected"  />
+           
+                     
+                    </div>
+                </div>
+                
+          </div>
+      </div>
+      <div  class="col mt-5">
+       
+          <div class="my-3"><span style="color: orange;">Main Informations</span></div>
+         <form  name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+          
+              <div class="d-flex">
+                <div class="form-group col-md-4 mx-4 ">
+                  <label for="FirstName">First Name <span style="color: red;">*</span></label>
+                  <input  [(ngModel)]="contact.firstname" name="FirstName" type="text"  placeholder="{{contact.firstName}}"  class="form-control" required #FirstName="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && FirstName.errors }">
+                                      
+                  <div *ngIf="f.submitted && FirstName.errors" class="invalid-feedback">
+                    <div *ngIf="FirstName.errors['required']">FirstName obligatoire</div>
+                  </div>
+  
+                </div>
+                <div class="form-group col-md-4 mx-4">
+                  <label for="LastName">Last Name <span style="color: red;">*</span></label>
+                  <input [(ngModel)]="contact.lastname" name="LastName" type="text"   placeholder="Last name" class="form-control" required #LastName="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && LastName.errors }">
+  
+                  <div *ngIf="f.submitted && LastName.errors" class="invalid-feedback">
+                    <div *ngIf="LastName.errors['required']">LastName obligatoire</div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex">
+                  <div class="form-group col-md-4 mx-4">
+                    <label for="inputEmail4">Email</label>
+                    <input  [(ngModel)]="contact.email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  #email="ngModel" name="email" type="email" class="form-control" placeholder="Email"
+                    [ngClass]="{ 'is-invalid': f.submitted && email.errors }">
+                    <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
+     
+                      <div *ngIf="email.errors['pattern']"> forme invalid</div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4 mx-4">
+                    <label for="inputPassword4">Phone</label>
+                    <input [(ngModel)]="contact.phone" name="phone" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" type="number"  class="form-control" #phone="ngModel" class="form-control" id="Phone" placeholder="Phone"
+                    [ngClass]="{ 'is-invalid': f.submitted && phone.errors }">
+                    <div *ngIf="f.submitted && phone.errors" class="invalid-feedback">
+     
+                      <div *ngIf="phone.errors['pattern']"> forme invalid</div>
+                    </div>
+                  </div>
+                </div>
+              <div class="form-group col-4 mx-4" >
+                  <label for="Owner">Contact Owner</label>
+                  <select [(ngModel)]="contact.contactowner" name="contactowner" id="Owner" class="form-control">
+                    <option *ngFor="let l of c" value="{{l.firstname}}">{{ l.firstname }}</option>
+                  </select>
+              </div>
+              <div class="d-flex">
+                  <div class="form-group col-md-4 mx-4">
+                      <label for="title">job title</label>
+                      <select  [(ngModel)]="contact.job" name="job" id="title" class="form-control">
+                        <option selected >CEO</option>
+                        <option >...</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4 mx-4">
+                    <label for="inputPassword4">Company</label>
+                    <input [(ngModel)]="contact.company" name="company" type="text" class="form-control" id="Company" placeholder="Company">
+                  </div>
+                </div>
+           
+            <div class="my-3"><span style="color: orange;">Adresse</span></div>
+  
+            
+             
+              <div class="d-flex">
+                 
+                  <div class="form-group col-md-9 mx-4">
+                    <label for="inputPassword4">adresse</label>
+                    <input  [(ngModel)]="contact.adress" name="adress" type="text" class="form-control" id="adresse" placeholder="adresse">
+                  </div>
+                </div>
+              <div class="d-flex">
+                  <div class="form-group col-md-4 mx-4 ">
+                    <label for="inputEmail4">Country</label>
+                    <input [(ngModel)]="contact.contry" name="contry" type="text" class="form-control mr-3" id="Country" placeholder="Country">
+                  </div>
+                  <div class="form-group col-md-4 mx-4">
+                    <label for="inputPassword4">Zip code</label>
+                    <input [(ngModel)]="contact.zip" name="zip" type="text" class="form-control" id="code" placeholder="code">
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <div class="form-group col-md-4 mx-4 ">
+                    <label for="inputEmail4">city</label>
+                    <input [(ngModel)]="contact.city" name="adress" type="text" class="form-control mr-3" id="city" placeholder="city">
+                  </div>
+                  <div class="form-group col-md-4 mx-4">
+                    <label for="inputPassword4">State</label>
+                    <input [(ngModel)]="contact.state" name="state" type="text" class="form-control" id="State" placeholder="State">
+                  </div>
+                </div>
+             
+           
+            <hr>
+            
+            
+          
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn3 btn  w-75"><span > Send Email </span></button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn4 btn  w-75" routerLink="/contact"><span > Cancel </span></button>
+            </div>
+            <div class="col">
+              <button type="submit" class="btn3 btn w-75"><span > Save </span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+  
+  </div>
+  
+  
+  
+  </div>
+  
+  
+  <hr>

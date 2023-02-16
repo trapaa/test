@@ -5,6 +5,7 @@ import { AddActiviteComponent } from './components/add-activite/add-activite.com
 import { AddContactComponent } from './components/add-contact/add-contact.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
+import { UpdateComponent } from './components/update/update.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'add', component: AddContactComponent},
   { path: 'activite', component: ActiviteComponent},
   { path: 'addA', component: AddActiviteComponent},
+  { path: 'update', component: UpdateComponent},
  
 ];
 

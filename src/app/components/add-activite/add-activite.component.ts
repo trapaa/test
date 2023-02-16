@@ -45,6 +45,12 @@ activite:activite;
 
 get f() { return this.registerForm.controls; }
 
+activitee(){
+  localStorage.setItem('state','liste');
+  (this.router.navigate(['/activite']))
+
+ }
+
 onSubmit() {
   console.log(this.activite)
   activites.push(this.activite);
@@ -65,5 +71,7 @@ onSubmit() {
   alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   
 }
+
+
 
 }

@@ -1,4 +1,5 @@
 export class contactt {
+  id:number;
     firstname?: String;
     
    
@@ -15,7 +16,11 @@ export class contactt {
 
     contactowner?:String;
    
-
+adress:string;
+city:string;
+contry:string;
+state:string;
+zip:number;
 
     
   }

@@ -19,6 +19,7 @@ import { ActiviteComponent } from './components/activite/activite.component';
 import { AddActiviteComponent } from './components/add-activite/add-activite.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { UpdateComponent } from './components/update/update.component';
 
 
 
@@ -34,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     AddContactComponent,
     ActiviteComponent,
-    AddActiviteComponent
+    AddActiviteComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
